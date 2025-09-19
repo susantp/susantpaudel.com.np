@@ -8,6 +8,8 @@ import {
   LuCloud,
   LuTerminal,
   LuBrain,
+  LuListChecks,
+  LuSparkles,
 } from "react-icons/lu";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { ComponentType } from "react";
@@ -17,10 +19,14 @@ interface Contact {
   href: string;
   icon: ComponentType<{ className?: string }>;
 }
+interface AboutSection {
+  screenTitle: string;
+  icon: React.ComponentType<{ className?: string }>;
+  contents: string[];
+}
 
 interface About {
-  responsibilities: string[];
-  strengths: string[];
+  [key: string]: AboutSection;
 }
 
 interface Skill {
@@ -83,22 +89,30 @@ const content: Content = {
     ],
   },
   about: {
-    responsibilities: [
-      "Analyzing, designing, developing, and testing complex software applications and related programs",
-      "Applying deep knowledge of current programming languages and technologies to write, debug, and optimize code",
-      "Interacting with internal and external stakeholders to understand requirements and ensure alignment with business goals",
-      "Participating in code reviews and providing constructive feedback to improve code quality, while mentoring junior developers",
-      "Collaborating with multidisciplinary teams to implement tasks and features based on requirements, leveraging agile methodologies",
-    ],
-    strengths: [
-      "7+ years of experience in software development",
-      "Proficiency in JavaScript, Typescript, Node.js, Next.js, React, Python, Django, SQL and NoSQL databases, PHP (Laravel, Yii, Codeigniter)",
-      "Experience integrating and consuming different LLM/Generative AI models such as OpenAI ChatGPT, Google Gemini and Anthropic Claude",
-      "Experience with Docker and cloud technologies, particularly AWS",
-      "Solid understanding of source control and versioning using Git",
-      "Extensive experience developing and consuming REST and GraphQL APIs",
-      "Strong problem-solving skills, excellent communication abilities, and a collaborative mindset demonstrated through successful project leadership and stakeholder management",
-    ],
+    responsibilities: {
+      screenTitle: "I am responsible for",
+      icon: LuListChecks,
+      contents: [
+        "Analyzing, designing, developing, and testing complex applications",
+        "Applying deep knowledge of modern programming languages",
+        "Interacting with stakeholders to align business goals",
+        "Participating in code reviews and mentoring juniors",
+        "Collaborating with teams using agile methodologies",
+      ],
+    },
+    strengths: {
+      screenTitle: "What I bring to the company",
+      icon: LuSparkles,
+      contents: [
+        "7+ years of experience in software development",
+        "Proficiency in JavaScript, TypeScript, React, Next.js, Node.js, Python, Django, SQL/NoSQL, PHP",
+        "Experience with LLMs like ChatGPT, Gemini, Claude",
+        "Experience with Docker and cloud (AWS)",
+        "Solid understanding of Git and versioning",
+        "Extensive REST/GraphQL API experience",
+        "Strong problem-solving and leadership skills",
+      ],
+    },
   },
   skills: [
     { icon: LuCode, label: "JavaScript / TypeScript" },

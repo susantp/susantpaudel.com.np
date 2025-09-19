@@ -1,7 +1,8 @@
 import content from "@/data";
 import { Card, CardContent } from "./ui/card";
-import { LuBriefcase, LuGraduationCap, LuListChecks, LuSparkles } from "react-icons/lu";
+import { LuBriefcase, LuGraduationCap } from "react-icons/lu";
 import { JSX } from "react";
+import { toTitleCase } from "@/lib/utils";
 
 export default function Portfolio(): JSX.Element {
   return (
@@ -36,45 +37,37 @@ export default function Portfolio(): JSX.Element {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-semibold mb-12 text-center">About Me</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Responsibilities Card */}
-          <Card className="w-full h-64 [perspective:1000px] cursor-pointer group">
-            <div className="relative w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-hover:shadow-xl">
-              {/* Front (short) */}
-              <CardContent className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-purple-100 rounded-lg [backface-visibility:hidden]">
-                <LuListChecks className="w-10 h-10 text-purple-700 mb-3" />
-                <h3 className="text-lg font-bold text-gray-800">Responsibilities</h3>
-              </CardContent>
-              {/* Back (full) */}
-              <CardContent className="absolute inset-0 p-6 bg-purple-50 rounded-lg overflow-y-auto [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                <h3 className="text-lg font-bold mb-2">I am responsible for:</h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
-                  {content.about.responsibilities.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </div>
-          </Card>
+          {Object.entries(content.about).map(([key, section]) => {
+            const Icon = section.icon;
+            return (
+              <Card
+                key={key}
+                className="w-full h-64 [perspective:1000px] cursor-pointer group"
+              >
+                <div className="relative w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-hover:shadow-xl">
+                  {/* Front */}
+                  <CardContent className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-purple-100 rounded-lg [backface-visibility:hidden]">
+                    <Icon className="w-10 h-10 text-purple-700 mb-3" />
+                    <h3 className="text-lg font-bold text-gray-800">
+                      {toTitleCase(key)}
+                    </h3>
+                  </CardContent>
 
-          {/* Strengths Card */}
-          <Card className="w-full h-64 [perspective:1000px] cursor-pointer group">
-            <div className="relative w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-hover:shadow-xl">
-              {/* Front (short) */}
-              <CardContent className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-purple-100 rounded-lg [backface-visibility:hidden]">
-                <LuSparkles className="w-10 h-10 text-purple-700 mb-3" />
-                <h3 className="text-lg font-bold text-gray-800">Strengths</h3>
-              </CardContent>
-              {/* Back (full) */}
-              <CardContent className="absolute inset-0 p-6 bg-purple-50 rounded-lg overflow-y-auto [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                <h3 className="text-lg font-bold mb-2">What I bring to the company:</h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
-                  {content.about.strengths.map((item, i) => (
-                    <li key={i}>{item}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </div>
-          </Card>
+                  {/* Back */}
+                  <CardContent className="absolute inset-0 p-6 bg-purple-50 rounded-lg overflow-y-auto [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <h3 className="text-lg font-bold mb-2">
+                      {section.screenTitle}
+                    </h3>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm">
+                      {section.contents.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </section>
 
@@ -129,10 +122,14 @@ export default function Portfolio(): JSX.Element {
                       </h3>
                       {exp.roles.map((role, i) => (
                         <div key={i} className="mb-2">
-                          <p className="text-sm font-semibold text-gray-800">{role.title}</p>
+                          <p className="text-sm font-semibold text-gray-800">
+                            {role.title}
+                          </p>
                           <p className="text-sm text-gray-600">{role.period}</p>
                           {role.location && (
-                            <p className="text-sm text-gray-600">{role.location}</p>
+                            <p className="text-sm text-gray-600">
+                              {role.location}
+                            </p>
                           )}
                           {role.promotedFrom && (
                             <p className="text-xs text-purple-600 italic">
@@ -162,7 +159,9 @@ export default function Portfolio(): JSX.Element {
               <LuGraduationCap className="w-6 h-6" />
               <div>
                 <h3 className="font-bold">{content.education.school}</h3>
-                <p className="text-sm text-gray-600">{content.education.degree}</p>
+                <p className="text-sm text-gray-600">
+                  {content.education.degree}
+                </p>
               </div>
             </CardContent>
           </Card>
@@ -171,7 +170,10 @@ export default function Portfolio(): JSX.Element {
 
       {/* Footer */}
       <footer className="py-8 text-center text-sm text-gray-600">
-        <p>© {new Date().getFullYear()} {content.profile.name}. All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} {content.profile.name}. All rights
+          reserved.
+        </p>
       </footer>
     </main>
   );
