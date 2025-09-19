@@ -9,7 +9,7 @@ import {
   LuTerminal,
   LuBrain,
 } from "react-icons/lu";
-import { SiLinkedin } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { ComponentType } from "react";
 
 // Types
@@ -74,6 +74,7 @@ const content: Content = {
       { href: "mailto:gracysusant@gmail.com", icon: LuMail },
       { href: "tel:9813779363", icon: LuPhone },
       { href: "https://www.linkedin.com/in/susant-paudel", icon: SiLinkedin },
+      { href: "https://www.github.com/susantp", icon: SiGithub}
     ],
   },
   about: `I am responsible for analyzing, designing, developing, and testing complex software applications.
