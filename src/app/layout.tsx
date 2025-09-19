@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://susantpaudel-com-np.vercel.app"),
+  metadataBase: new URL("https://www.susantpaudel.com.np"),
   title: content.meta.title,
   description: content.meta.description,
   openGraph: {
