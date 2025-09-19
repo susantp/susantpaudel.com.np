@@ -18,6 +18,11 @@ interface Contact {
   icon: ComponentType<{ className?: string }>;
 }
 
+interface About {
+  responsibilities: string[];
+  strengths: string[];
+}
+
 interface Skill {
   icon: ComponentType<{ className?: string }>;
   label: string;
@@ -53,7 +58,7 @@ interface Content {
     image: string;
     contacts: Contact[];
   };
-  about: string;
+  about: About;
   skills: Skill[];
   experience: Experience[];
   education: Education;
@@ -77,10 +82,24 @@ const content: Content = {
       { href: "https://www.github.com/susantp", icon: SiGithub },
     ],
   },
-  about: `I am responsible for analyzing, designing, developing, and testing complex software applications.
-With over 7 years of experience in software development, I bring proficiency in JavaScript, TypeScript,
-Node.js, Next.js, React, Python, Django, SQL/NoSQL, and PHP frameworks. I have experience with cloud
-technologies, Docker, and integrating generative AI models like ChatGPT, Gemini, and Claude.`,
+  about: {
+    responsibilities: [
+      "Analyzing, designing, developing, and testing complex software applications and related programs",
+      "Applying deep knowledge of current programming languages and technologies to write, debug, and optimize code",
+      "Interacting with internal and external stakeholders to understand requirements and ensure alignment with business goals",
+      "Participating in code reviews and providing constructive feedback to improve code quality, while mentoring junior developers",
+      "Collaborating with multidisciplinary teams to implement tasks and features based on requirements, leveraging agile methodologies",
+    ],
+    strengths: [
+      "7+ years of experience in software development",
+      "Proficiency in JavaScript, Typescript, Node.js, Next.js, React, Python, Django, SQL and NoSQL databases, PHP (Laravel, Yii, Codeigniter)",
+      "Experience integrating and consuming different LLM/Generative AI models such as OpenAI ChatGPT, Google Gemini and Anthropic Claude",
+      "Experience with Docker and cloud technologies, particularly AWS",
+      "Solid understanding of source control and versioning using Git",
+      "Extensive experience developing and consuming REST and GraphQL APIs",
+      "Strong problem-solving skills, excellent communication abilities, and a collaborative mindset demonstrated through successful project leadership and stakeholder management",
+    ],
+  },
   skills: [
     { icon: LuCode, label: "JavaScript / TypeScript" },
     { icon: LuServer, label: "Node.js / Next.js / React" },
