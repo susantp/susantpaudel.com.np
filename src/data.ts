@@ -64,7 +64,7 @@ const content: Content = {
   meta: {
     title: "Susant Paudel | Lead Software Engineer & Full-Stack Developer",
     description:
-      "Portfolio of Susant Paudel, a Lead Software Engineer with 7+ years of experience in building scalable web applications, cloud solutions, and AI integrations. Skilled in JavaScript, TypeScript, React, Next.js, Node.js, Python, Django, PHP, SQL/NoSQL, and Docker. Based in Nepal, delivering modern software engineering solutions.",
+      "Susant Paudel, Lead Software Engineer with 7+ years in full-stack development. Expert in JavaScript, React, Next.js, Node.js, Python, and cloud solutions.",
   },
   profile: {
     name: "Susant Paudel",
