@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.susantpaudel.com.np"),
-  themeColor: "#800080",
+  themeColor: "#6B21A8",
   title: content.meta.title,
   description: content.meta.description,
   openGraph: {
