@@ -13,8 +13,8 @@ export default function Portfolio(): JSX.Element {
             <header className="py-12 text-center bg-purple-800 text-white">
                 <div className="flex justify-center mb-4">
                     <Image
-                        width={150}
-                        height={150}
+                        width={250}
+                        height={250}
                         src={content.profile.image}
                         alt={content.profile.name}
                         className=" rounded-full border-4 border-white shadow-lg"
