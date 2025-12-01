@@ -126,6 +126,19 @@ const content: Content = {
   ],
   experience: [
     {
+      company: "Sell Thru AI",
+      logo: "/logos/sell-thru-ai.png",
+      roles: [
+        {
+          title: "Lead Software Engineer",
+          period: "Oct 2025 – Present",
+          location: "Georgia, United States",
+        },
+      ],
+      description:
+        "Helping retailers unite data across silos, unlocking insights that grow revenue, margin and productivity.",
+    },
+    {
       company: "YCOTEK",
       logo: "/logos/ycotek.png",
       roles: [
