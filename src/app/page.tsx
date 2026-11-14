@@ -1,5 +1,6 @@
 import Portfolio from "@/components/Portfolio";
+import { content } from "@/content";
 
 export default function Home() {
-  return <Portfolio />;
+  return <Portfolio page={content.page} />;
 }

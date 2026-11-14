@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import content from "@/data";
+import { content } from "@/content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,32 +14,25 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#6B21A8" },
-    { media: "(prefers-color-scheme: dark)", color: "#6B21A8" },
-  ],
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  colorScheme: "light dark",
+  ...content.layout.viewport,
+  themeColor: content.layout.viewport.themeColor.map((item) => ({ ...item })),
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.susantpaudel.com.np"),
+  metadataBase: new URL(content.layout.metadata.metadataBase),
 
-  title: content.meta.title,
-  description: content.meta.description,
+  title: content.layout.metadata.title,
+  description: content.layout.metadata.description,
   openGraph: {
-    title: content.meta.title,
-    description: content.meta.description,
-    images: [content.profile.image],
+    title: content.layout.metadata.title,
+    description: content.layout.metadata.description,
+    images: [content.page.profile.image],
   },
   twitter: {
     card: "summary_large_image",
-    title: content.meta.title,
-    description: content.meta.description,
-    images: [content.profile.image],
+    title: content.layout.metadata.title,
+    description: content.layout.metadata.description,
+    images: [content.page.profile.image],
   },
 };
 
